@@ -12,10 +12,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>메인 페이지</title>
     <jsp:include page="${path1 }/head.jsp" />
+
 </head>
 <body>
   	<jsp:include page="${path1 }/header.jsp" />
 	<h2>${user}님의 테스트 입니다.</h2>
+	
+	
 	<jsp:include page="${path1 }/footer.jsp" />
 </body>
 </html>
