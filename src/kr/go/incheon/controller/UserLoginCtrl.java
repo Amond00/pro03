@@ -1,6 +1,7 @@
 package kr.go.incheon.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -22,33 +23,38 @@ public class UserLoginCtrl extends HttpServlet {
 				response.setCharacterEncoding("UTF-8");
 				response.setContentType("text/html; charset=UTF-8");
 				
-				String usId = request.getParameter("usId");
-				String usPw = request.getParameter("usPw");
+				PrintWriter out = response.getWriter();
+						
+				String usid = request.getParameter("usid");
+				String uspw = request.getParameter("uspw");
 				
 				
 				UserDTO dto = new UserDTO();
-				dto.setUsId(usId);
-				dto.setUsPw(usPw);
+				dto.setUsid(usid);
+				dto.setUspw(uspw);
 				
 				
 				UserDAO dao = new UserDAO();
-				
 				int cnt = dao.Login(dto);
 
-				String usName = dto.getUsName();
+				String usname = dto.getUsname();
 				HttpSession session = request.getSession();
 				
-				System.out.println("로그인 정보");
-				System.out.println("아이디"+usId);
-				System.out.println("이름"+usName);
-					
 				
 				if(cnt>=1){
+					session.setAttribute("usId", usid);
+					session.setAttribute("usName", usname);
 					response.sendRedirect("Main");
 				} else {
-					response.sendRedirect("Main");
-					session.setAttribute("usId", usId);
-					session.setAttribute("usName", usName);
+					
+					out.println("<script>");
+
+					out.println("alert('아이디 혹은 비밀번호가 일치하지 않습니다.');");
+
+					out.println("history.back();");
+
+					out.println("</script>");
+						
 				}
 	}
 }

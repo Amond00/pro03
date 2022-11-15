@@ -19,19 +19,20 @@
   <section class="section">
     <div class="container">
       <h1 class="title">공지사항 수정</h1>
+      <form action="UpdateNoticeProCtrl.do" method="post">
 		<table class="table">
 		   <tbody>
 		    <tr>
 		      <th>번호</th>
-		      <td><p>${dto.no }</p></td>
+		      <td><input id="no" name="no" value="${dto.no }" readonly></td>
 		    </tr>
 		    <tr>
 		      <th>제목</th>
-		      <td><input type="text" name="title" id="title" placeholder="제목 입력" class="form-control" value="${dto.title }" autofocus required /></td>
+		      <td><input type="text" name="title" id="title" class="form-control" value="${dto.title }" autofocus required /></td>
 		    </tr>
 		    <tr>
 		      <th>내용</th>
-		      <td><input type="text" name="title" id="title" placeholder="제목 입력" class="form-control" value="${dto.content }" autofocus required /></td>
+		      <td><input type="text" name="content" id="content" class="form-control" value="${dto.content }" autofocus required /></td>
 		    </tr>
 		    <tr> 
 		      <th>작성일</th>
@@ -45,8 +46,11 @@
 		    </tr>
 		  </tbody>
 		</table>
-		<a href="${path1 }/GetNoticeListCtrl.do">목록</a>
-		<a href="${path1 }/UpdateNoticeCtrl.do?no${dto.no }">글 수정</a>
+		<div class="buttons">
+		  <button type="submit" class="button is-warning">글 수정</button>
+		  <a href="${path1 }/GetNoticeListCtrl.do" class="button is-info">목록</a>
+		</div>
+	 </form>
     </div>
   </section>
   <jsp:include page="/footer.jsp"></jsp:include>

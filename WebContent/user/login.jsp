@@ -24,7 +24,7 @@
 		            <div class="field">
 		              <label for="" class="label">ID</label>
 		              <div class="control has-icons-left">
-		                <input type="text" placeholder="ID" class="input" required id="usId" name="usId">
+		                <input type="text" placeholder="ID" class="input" required id="usid" name="usid">
 		                <span class="icon is-small is-left">
 		                  <i class="fa fa-envelope"></i>
 		                </span>
@@ -34,7 +34,7 @@
 		            <div class="field">
 		              <label for="" class="label">Password</label>
 		              <div class="control has-icons-left">
-		                <input type="password" placeholder="*******" class="input" required id="usPw" name="usPw">
+		                <input type="password" placeholder="*******" class="input" required id="uspw" name="uspw">
 		                <span class="icon is-small is-left">
 		                  <i class="fa fa-lock"></i>
 		                </span>

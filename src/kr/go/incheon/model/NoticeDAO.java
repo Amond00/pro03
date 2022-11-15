@@ -12,7 +12,6 @@ public class NoticeDAO {
 	private Connection con = null;
 	private PreparedStatement pstmt = null;
 	private ResultSet rs = null;
-	String sql = "";
 	
 	public ArrayList<NoticeDTO> getNoticeList() {
 		ArrayList<NoticeDTO> notiList = new ArrayList<NoticeDTO>();
@@ -101,11 +100,11 @@ public class NoticeDAO {
 		return cnt;
 	}
 	
-	public int updateNotice(NoticeDTO dto){
+	public int updateNotice(NoticeDTO dto) {
 		int cnt = 0;
 		try {
 			con = Maria.getConnection();
-			//글 수정
+			//글 추가
 			pstmt = con.prepareStatement(Maria.NOTICE_UPDATE);
 			pstmt.setString(1, dto.getTitle());
 			pstmt.setString(2, dto.getContent());
@@ -124,6 +123,7 @@ public class NoticeDAO {
 		}
 		return cnt;
 	}
+	
 	
 	public int DelNotice(NoticeDTO dto){
 		int cnt = 0;

@@ -1,9 +1,9 @@
 package kr.go.incheon.dto;
 
 public class UserDTO {
-	private String usId;
-	private String usPw;
-	private String usName;
+	private String usid;
+	private String uspw;
+	private String usname;
 	private String address;
 	private String tel;
 	private String email;
@@ -12,24 +12,23 @@ public class UserDTO {
 	private int point;
 	private int level;
 	private int visited;
-	
-	public String getUsId() {
-		return usId;
+	public String getUsid() {
+		return usid;
 	}
-	public void setUsId(String usId) {
-		this.usId = usId;
+	public void setUsid(String usid) {
+		this.usid = usid;
 	}
-	public String getUsPw() {
-		return usPw;
+	public String getUspw() {
+		return uspw;
 	}
-	public void setUsPw(String usPw) {
-		this.usPw = usPw;
+	public void setUspw(String uspw) {
+		this.uspw = uspw;
 	}
-	public String getUsName() {
-		return usName;
+	public String getUsname() {
+		return usname;
 	}
-	public void setUsName(String usName) {
-		this.usName = usName;
+	public void setUsname(String usname) {
+		this.usname = usname;
 	}
 	public String getAddress() {
 		return address;
@@ -42,6 +41,18 @@ public class UserDTO {
 	}
 	public void setTel(String tel) {
 		this.tel = tel;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public String getBirth() {
+		return birth;
+	}
+	public void setBirth(String birth) {
+		this.birth = birth;
 	}
 	public String getRegDate() {
 		return regDate;
@@ -67,17 +78,6 @@ public class UserDTO {
 	public void setVisited(int visited) {
 		this.visited = visited;
 	}
-	public String getEmail() {
-		return email;
-	}
-	public void setEmail(String email) {
-		this.email = email;
-	}
-	public String getBirth() {
-		return birth;
-	}
-	public void setBirth(String birth) {
-		this.birth = birth;
-	}
+	
 	
 }

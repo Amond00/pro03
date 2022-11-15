@@ -22,10 +22,18 @@
 	               <div class="field">
 	                  <label class="label">ID</label>
 	                  <div class="control">
-	                     <input class="input" type="text" id="usid" name="usid" placeholder="Text input" required autofocus>
-	                     <button type="button" class="button is-info" onclick="idCheck()">아이디 중복 확인</button>
-	                     <input type="hidden" name="idck" id="idck" value="no" >
+	                     <input type="text" name="usid" id="usid" placeholder="아이디 입력" class="input" autofocus required />
+							<input type="button" class="button is-info" value="아이디 중복 확인" onclick="idCheck()">
+							<input type="hidden" name="idck" id="idck" value="no">
 	                  </div>
+	                  <div>
+							<c:if test="${empty qusid }">
+							<p id="msg" style="padding-left:0.5rem">아직 아이디 중복 체크를 하지 않으셨습니다.</p>
+							</c:if>
+							<c:if test="${not empty qusid }">
+							<p id="msg" style="padding-left:0.5rem">아이디 중복 체크후 수정하였습니다.</p>
+							</c:if>
+					  </div>
 	               </div>
 	               <div class="field">
 	                  <label class="label">PW</label>
@@ -78,50 +86,78 @@
 	         </div>
 		</section>
 	</form>
-	<script>
-	function idCheck(){
-		if($("#id").val()==""){
-			alert("아이디를 입력하지 않으셨습니다.")
-			$("#id".focus());
-			return;
+<script>
+$(document).ready(function(){
+	$("#usid").keyup(function(){
+		$("#idck").val("no");
+		if($(this).val()!=""){
+			$("#msg").html("<strong>아이디 입력중입니다.</strong>");
+		} else {
+			$("#msg").html("아직 아이디 중복 체크를 하지 않으셨습니다.");
 		}
-		var params = { id : $("#id").val() }
-		$ajax({
-			url:"${path1 }/IdCheckCtrl.do",
-			type:"post",
-			dataType:"json",
-			data:params,
-			success:function(result){
-				console.log(result.result);
-				var idChk = result.result;
-				if(idChk==false){
-					$("#idck").val("no");
-					$("#msg").html("<strong style='color:red'>기존에 사용되고 있는 아이디 입니다. 다시 시도해주시기 바랍니다. </strong>");
-					$("#id").focus();
-				} else if(idChk==true){
-					$("#idck").val("yes");
-					$("#msg").html("<strong style='color:blue;'>사용 가능한 아이디 입니다.</strong>");
-				} else if(idck==""){
-					$("#msg").html("<strong>아이디가 확인되지 않으셨습니다. 다시 시도해주시기 바랍니다.");
-				}
-			}
-		
-		})
-	}	
-	
-	function joinCheck(f){
-		if(f.usPw.value!=f.usPw2.value){
-			alert("비밀번호와 비밀번호 확인이 서로 다릅니다.");
-			f.usPw.focus();
-			return false;
-		}
-		
-		if(f.idck.value!="yes"){
-			alert("아이디 중복 체크를 하지 않으셨습니다.");
-			return false;
-		}
-	}
+	});
+});
 </script>
+<script>
+function idCheck(){
+	if($("#usid").val()==""){
+		alert("아이디를 입력하지 않으셨습니다.");
+		$("#usid").focus();
+		return;
+	} 
+	var params = {	id : $("#usid").val()	} //전송되어질 데이터를 객체로 묶음
+	$.ajax({
+		url:"${path1 }/IdCheckCtrl.do",	//아이디가 전송되어질 곳
+		type:"post",		//전송방식
+		dataType:"json",	//데이터 반환 방식
+		data:params,		//전송방식이 post인 경우 객체로 묶어서 전송
+		success:function(result){
+			console.log(result.result);
+			var idChk = result.result;	//true 또는 false를 받음
+			if(idChk==false){	//사용할 수 없는 아이디
+				$("#idck").val("no");
+				$("#msg").html("<strong style='color:red'>기존에 사용되고 있는 아이디 입니다. 다시 입력하시기 바랍니다.</strong>");
+				$("#uaid").focus();
+			} else if(idChk==true){	//사용 가능한 아이디
+				$("#idck").val("yes");
+				$("#msg").html("<strong style='color:blue'>사용가능한 아이디 입니다.</strong>");
+			} else if(idck==""){
+				$("#msg").html("<strong>아이디가 확인되지 않았습니다. 다시 시도해주시기 바랍니다.</strong>");
+			}
+		}
+	});
+}
+function joinCheck(f){
+	if(f.pw.value!=f.pw2.value){
+		alert("비밀번호와 비밀번호 확인이 서로 다릅니다.");
+		f.pw.focus();
+		return false;
+	}
+	if(f.idck.value!="yes"){
+		alert("아이디 중복 체크를 하지 않으셨습니다.");
+		return false;
+	}
+}
+</script>
+<script>
+function findAddr() {
+	new daum.Postcode({
+		oncomplete: function(data) {
+			console.log(data);
+			var roadAddr = data.roadAddress;
+			var jibunAddr = data.jibunAddress;
+			document.getElementById("postcode").value = data.zonecode;
+			if(roadAddr !== '') {
+				document.getElementById("address1").value = roadAddr;				
+			} else if(jibunAddr !== ''){
+				document.getElementById("address1").value = jibunAddr;
+			}
+			document.getElementById("address2").focus();
+		}
+	}).open();
+}
+</script>
+	<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 	<jsp:include page="/footer.jsp" />
 </body>
 </html>				

@@ -29,7 +29,7 @@ create table user(
 	usPw varchar(200) not null,
 	usName varchar(50) not null,
 	address varchar(500) not null,
-	tel varchar(14) not null,
+	tel varchar(14) not NULL,
 	email VARCHAR(50) NOT NULL,
 	birth DATETIME NOT NULL,
 	regDate datetime default now(),
@@ -44,3 +44,16 @@ INSERT INTO USER VALUES('admin',1234,'관리자','경기도 고양시 일선수�
 INSERT INTO USER VALUES('hth',1234,'한태헌','경기도 고양시 벛꽃수구','010-5555-3333','hth@gmail.com','2000-07-17',DEFAULT,0,0,0);
 
 SELECT * FROM USER WHERE usId="admin" and usPw="1234";
+
+
+CREATE TABLE tour(
+	NO INT PRIMARY KEY AUTO_INCREMENT,
+	tourno INT,
+	title VARCHAR(200),
+	content VARCHAR(500),
+	pic VARCHAR(100),
+	pic2 VARCHAR(100)
+	
+);
+SELECT * FROM tour;
+

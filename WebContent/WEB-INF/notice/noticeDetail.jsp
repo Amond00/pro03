@@ -46,7 +46,7 @@
 		  </tbody>
 		</table>
 		<a href="${path1 }/GetNoticeListCtrl.do">목록</a>
-		<a href="${path1 }/UpdateNoticeCtrl.do?no${dto.no }">글 수정</a>
+		<a href="${path1 }/UpdateNoticeCtrl.do?no=${dto.no }">글 수정</a>
 		<a href="${path1 }/DelNoticeCtrl.do?no=${dto.no }">글 삭제</a>
     </div>
   </section>

@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import kr.go.incheon.dto.UserDTO;
-import kr.go.incheon.model.NoticeDAO;
 import kr.go.incheon.model.UserDAO;
 
 
@@ -31,9 +30,9 @@ public class AddUserCtrl extends HttpServlet {
 		String birth = request.getParameter("birth");
 		
 		UserDTO dto = new UserDTO();
-		dto.setUsId(usId);
-		dto.setUsPw(usPw);
-		dto.setUsName(usName);
+		dto.setUsid(usId);
+		dto.setUspw(usPw);
+		dto.setUsname(usName);
 		dto.setAddress(address);
 		dto.setTel(tel);
 		dto.setEmail(email);
