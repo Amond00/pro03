@@ -22,7 +22,7 @@ public class UserLoginCtrl extends HttpServlet {
 				request.setCharacterEncoding("UTF-8");
 				response.setCharacterEncoding("UTF-8");
 				response.setContentType("text/html; charset=UTF-8");
-				
+				HttpSession session = request.getSession();
 				PrintWriter out = response.getWriter();
 						
 				String usid = request.getParameter("usid");
@@ -33,28 +33,20 @@ public class UserLoginCtrl extends HttpServlet {
 				dto.setUsid(usid);
 				dto.setUspw(uspw);
 				
-				
 				UserDAO dao = new UserDAO();
 				int cnt = dao.Login(dto);
-
-				String usname = dto.getUsname();
-				HttpSession session = request.getSession();
 				
+				String usname = dto.getUsname();
 				
 				if(cnt>=1){
 					session.setAttribute("usId", usid);
 					session.setAttribute("usName", usname);
 					response.sendRedirect("Main");
 				} else {
-					
 					out.println("<script>");
-
 					out.println("alert('아이디 혹은 비밀번호가 일치하지 않습니다.');");
-
 					out.println("history.back();");
-
-					out.println("</script>");
-						
+					out.println("</script>");					
 				}
 	}
 }

@@ -1,4 +1,5 @@
 USE 'goverment';
+
 COMMIT;
 
 --게시판
@@ -19,7 +20,7 @@ DROP TABLE NOTICE;
 INSERT INTO notice(title, content) VALUES ("테스트 글1", "테스트 글1 내용입니다.");
 INSERT INTO notice(title, content) VALUES ("테스트 글2", "테스트 글2 내용입니다.");
 
-COMMIT;
+
 DESC NOTICE;
 SELECT * FROM notice;
 
@@ -45,15 +46,48 @@ INSERT INTO USER VALUES('hth',1234,'한태헌','경기도 고양시 벛꽃수구
 
 SELECT * FROM USER WHERE usId="admin" and usPw="1234";
 
+--관광지 등록
+CREATE TABLE pic(
+	no INT PRIMARY KEY AUTO_INCREMENT,
+	tourno VARCHAR(20),
+	picname VARCHAR(150)
+);
+ALTER TABLE pic ADD COLUMN pos INT default 1; 
+INSERT INTO pic (tourno, picname) VALUES('','');
 
 CREATE TABLE tour(
-	NO INT PRIMARY KEY AUTO_INCREMENT,
-	tourno INT,
-	title VARCHAR(200),
-	content VARCHAR(500),
-	pic VARCHAR(100),
-	pic2 VARCHAR(100)
-	
+	no INT PRIMARY KEY AUTO_INCREMENT,
+	tourno VARCHAR(20),	-- 카테고리 타입 - 마지막 레코드의 no+1
+	cate VARCHAR(20),
+	place VARCHAR(100),
+	comment1 VARCHAR(1000),
+	comment2 VARCHAR(1000)  
 );
-SELECT * FROM tour;
+ALTER TABLE tour ADD COLUMN addr VARCHAR(200);
+update tour set addr="공릉천로64" WHERE tourno="A0001";
 
+SELECT COMMENT2 FROM tour;
+SELECT * FROM tour;
+SELECT * FROM pic;
+SELECT * FROM test;
+
+
+create table qna(
+    no int primary key auto_increment,
+    title varchar(100) not null,
+    content varchar(1000) not null,
+    author varchar(20) not null,
+    resdate datetime default NOW(),
+    lev int DEFAULT 0,           	 -- 깊이
+    parno int not NULL DEFAULT 0,    	 -- 부모글 번호   
+    visited INT DEFAULT 0         
+);
+SELECT * FROM qna;
+DROP TABLE qna;
+select * from qna where NO=2 and lev=1;
+select * from qna where lev=0 order by parno asc, lev asc,no asc;
+INSERT INTO qna VALUES(DEFAULT, '질문','질문내용','admin',DEFAULT,0,1,DEFAULT);
+INSERT INTO qna VALUES(DEFAULT, '질문2','질문내용2','admin',DEFAULT,0,2,DEFAULT);
+select * from qna where NO=2 and lev=1;
+
+INSERT INTO qna VALUES(DEFAULT, '답변','답변내용','admin',DEFAULT,1,1,DEFAULT);

@@ -1,47 +1,67 @@
 package kr.go.incheon.dto;
 
 public class TourDTO {
-	int no;
-	int tourno;
-	String title;
-	String content;
-	String pic1;
-	String pic2;
-	public int getno() {
+	private int no;
+	private String tourno;
+	private String cate;
+	private String place;
+	private String comment1;
+	private String comment2;
+	private String imgURL;
+	private String Addr;
+	public int getNo() {
 		return no;
 	}
-	public void setno(int no) {
+	public void setNo(int no) {
 		this.no = no;
 	}
-	public int getTourno() {
+	public String getTourno() {
 		return tourno;
 	}
-	public void setTourno(int tourno) {
+	public void setTourno(String tourno) {
 		this.tourno = tourno;
 	}
-	public String getTitle() {
-		return title;
+	public String getCate() {
+		return cate;
 	}
-	public void setTitle(String title) {
-		this.title = title;
+	public void setCate(String cate) {
+		this.cate = cate;
 	}
-	public String getContent() {
-		return content;
+	public String getPlace() {
+		return place;
 	}
-	public void setContent(String content) {
-		this.content = content;
+	public void setPlace(String place) {
+		this.place = place;
 	}
-	public String getPic1() {
-		return pic1;
+	public String getComment1() {
+		return comment1;
 	}
-	public void setPic1(String pic1) {
-		this.pic1 = pic1;
+	public void setComment1(String comment1) {
+		this.comment1 = comment1;
 	}
-	public String getPic2() {
-		return pic2;
+	public String getComment2() {
+		return comment2;
 	}
-	public void setPic2(String pic2) {
-		this.pic2 = pic2;
+	public void setComment2(String comment2) {
+		this.comment2 = comment2;
+	}
+	public String getImgURL() {
+		return imgURL;
+	}
+	public void setImgURL(String imgURL) {
+		this.imgURL = imgURL;
+	}
+	public String getAddr() {
+		return Addr;
+	}
+	public void setAddr(String addr) {
+		Addr = addr;
+	}
+	@Override
+	public String toString() {
+		return "TourDTO [no=" + no + ", tourno=" + tourno + ", cate=" + cate
+				+ ", place=" + place + ", comment1=" + comment1 + ", comment2="
+				+ comment2 + "]";
 	}
 	
 }

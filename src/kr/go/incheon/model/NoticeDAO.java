@@ -46,7 +46,7 @@ public class NoticeDAO {
 		NoticeDTO dto = new NoticeDTO();
 		try {
 			con = Maria.getConnection();
-			//읽은 횟수 증가
+			//visitied 증가
 			pstmt = con.prepareStatement(Maria.NOTICE_VISITED_UPDATE);
 			pstmt.setInt(1, no);
 			pstmt.executeUpdate();
@@ -104,7 +104,7 @@ public class NoticeDAO {
 		int cnt = 0;
 		try {
 			con = Maria.getConnection();
-			//글 추가
+			//글 수정
 			pstmt = con.prepareStatement(Maria.NOTICE_UPDATE);
 			pstmt.setString(1, dto.getTitle());
 			pstmt.setString(2, dto.getContent());
