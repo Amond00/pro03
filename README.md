@@ -46,7 +46,8 @@
 ![QnA](./img/imp/qnaInsertQ.PNG "QnA 질문 글 등록")
 ![QnA](./img/imp/qnaInsertA.PNG "QnA 답변 글 등록")
 ### 스토리보드
-https://user-images.githubusercontent.com/112074203/212822595-2a18c408-f17a-4ae1-b6c7-cc225e180634.mp4
+#### 프로토타입 시연 동영상
+  https://user-images.githubusercontent.com/112074203/212822595-2a18c408-f17a-4ae1-b6c7-cc225e180634.mp4
 ![PAPER PROTOTYPE](./img/slide/slide3.PNG )
 ![PAPER PROTOTYPE](./img/slide/slide4.PNG )
 ![PAPER PROTOTYPE](./img/slide/slide5.PNG )
