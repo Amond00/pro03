@@ -132,7 +132,7 @@
 		    <tr>
 		    	<th>주소</th>
 		    	<td>${dto.addr }
-		    		<input type="hidden" name="addr" id="addr" value="${dto.addr }" />
+		    		<input type="hidden" name="addr" class="addr" id="addr" value="${dto.addr }" />
 		    		<input type="hidden" name="place" id="place" value="${dto.place }" />
 		    	</td>
 		    </tr>
@@ -146,7 +146,7 @@
 			<script>
 			var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 			    mapOption = { //128.433182, 34.8544227
-			        center: new kakao.maps.LatLng(34.8544227, 128.433182), // 지도의 중심좌표
+			        center: new kakao.maps.LatLng(37.697963, 126.845864), // 지도의 중심좌표
 			        level: 7 // 지도의 확대 레벨
 			    };  
 			
@@ -157,7 +157,7 @@
 			var geocoder = new kakao.maps.services.Geocoder();
 			
 			// 주소로 좌표를 검색합니다
-			geocoder.addressSearch($("#addr").val(), function(result, status) {
+			geocoder.addressSearch($(".addr").val(), function(result, status) {
 			
 			    // 정상적으로 검색이 완료됐으면 
 			     if (status === kakao.maps.services.Status.OK) {

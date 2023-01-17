@@ -5,7 +5,7 @@
 background:#0b0b0b url('https://www.ito.or.kr/main/img/inc/footer_bg.jpg') no-repeat center top; margin-top:400px;">
 	<div class=wrap>
 		<div class="footer_ban">				
-			<ul>
+			<ul style="padding: 20px; font-family: sans-serif;">
 				<li><a href="http://www.icren.kr/" target="_blank">
 						<img src="https://www.ito.or.kr/main/img/inc/icren_logo.png" style="width: 100%;" alt="새창열림: 인천시정연구네트워크" />
 						<span>인천시정연구네트워크</span>

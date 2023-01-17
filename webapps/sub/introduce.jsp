@@ -14,9 +14,16 @@
 </head>
 <body>
 <jsp:include page="${path1 }/header.jsp" />
-<figure class="image is-16by9 is-covered">
-	<img src="${path1 }/img/sub1.jpg" alt="비쥬얼1" />
-</figure>
+<nav class="breadcrumb" aria-label="breadcrumbs" style="border-bottom:2px solid #ddd; padding-bottom:8px; min-height:48px; line-height:48px;" >
+</nav>
+<section style="background-color:#d3d3d3; margin-top:100px; ">
+	<div>
+		<img src="../img/sub2.jpg" alt="비쥬얼2" style="margin-top:100px; margin-left:500px"/>
+	</div>
+	<div>
+		<img src="../img/sub1.jpg" alt="비쥬얼1" style="margin-bottom:100px; margin-left:500px"/>
+	</div>
+</section>
 <jsp:include page="${path1 }/footer.jsp" />
 </body>
 </html>				

@@ -176,11 +176,11 @@ a {
 <body>
   	<jsp:include page="${path1 }/header.jsp" />
 	<section>
-		<!-- <span style="position:absolute; font-size:40px; color:white; z-index:1;">
+		<span style="position:absolute; font-size:60px; color:white; z-index:1; margin-top:80px; margin-left:80px;">
 							시민의 행복을 추구하는<br>
 							인천관광공사<br>
 							INCHEON TOURISM ORGANIZATION
-		</span> -->
+		</span>
         <div id="slider">
             <div class="card">
                 <div class="card-image">

@@ -24,15 +24,15 @@
 		   <tbody>
 		    <tr>
 		      <th>번호</th>
-		      <td><input id="no" name="no" value="${dto.no }" readonly></td>
+		      <td><input id="no" name="no" value="${dto.no }" readonly ></td>
 		    </tr>
 		    <tr>
 		      <th>제목</th>
-		      <td><input type="text" name="title" id="title" class="form-control" value="${dto.title }" autofocus required /></td>
+		      <td><input type="text" name="title" maxlength="120" id="title" class="textarea" value="${dto.title }" autofocus required /></td>
 		    </tr>
 		    <tr>
 		      <th>내용</th>
-		      <td><input type="text" name="content" id="content" class="form-control" value="${dto.content }" autofocus required /></td>
+		      <td><textarea rows="8" cols="100" type="text" name="content" id="content" class="textarea" value="" autofocus required >${dto.content }</textarea></td>
 		    </tr>
 		    <tr> 
 		      <th>작성일</th>

@@ -45,13 +45,13 @@
 	<nav class="breadcrumb" aria-label="breadcrumbs" style="border-bottom:2px solid #ddd; padding-bottom:8px; min-height:48px; line-height:48px;">
 	  <ul style="float:right;">
 	    <li><a href="${path1 }/">Home</a></li>
-	    <li class="is-active"><a href="#" aria-current="page">전체 장소 목록</a></li>
+	    <li class="is-active"><a href="#" aria-current="page">전체 관광지 목록</a></li>
 	  </ul>
 	</nav>
 	<div class="content">
   <section class="page">
     <div class="page_wrap">
-      <h1 class="title">장소 목록</h1>
+      <h1 class="title">관광지 목록</h1>
       <div class="tb_fr" >
 			<table class="tb" >
 			  <thead>

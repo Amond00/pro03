@@ -11,7 +11,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>장소 상세보기</title>
+    <title>관광지 목록</title>
     <jsp:include page="/head.jsp" />
   </head>
   <body>
@@ -51,7 +51,7 @@
 	</nav>
   <section class="section">
     <div class="container">
-      <h1 class="title">장소 상세보기</h1>
+      <h1 class="title">관광지 목록</h1>
       	<div id="con">
       		<div class="tile is-ancestor columns" style="padding-bottom:40px;">
       			<c:if test="${not empty list }">
